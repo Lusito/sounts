@@ -1,0 +1,73 @@
+{
+  "name": "sounts",
+  "version": "0.8.0",
+  "description": "A tiny helper library for working with the web audio API written in TypeScript.",
+  "keywords": [
+    "TypeScript",
+    "audio",
+    "web audio",
+    "webaudio",
+    "spatialization",
+    "positional",
+    "html5",
+    "Game"
+  ],
+  "homepage": "https://github.com/Lusito/sounts",
+  "bugs": {
+    "url": "https://github.com/Lusito/sounts/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Lusito/sounts.git"
+  },
+  "license": "Zlib",
+  "author": "Santo Pfingsten",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "rimraf dist && tsc -p tsconfig-build.json",
+    "docs:build": "vuepress build docs",
+    "docs:dev": "vuepress dev docs",
+    "lint": "npm run lint:style && npm run lint:es && npm run lint:package && npm run lint:md",
+    "lint:es": "eslint \"{src,sample}/**/*.{ts,tsx}\" --ext \".ts,.tsx\" --ignore-path .prettierignore",
+    "lint:es:fix": "npm run lint:es -- --fix",
+    "lint:fix": "npm run lint:style:fix && npm run lint:es:fix && npm run lint:package:fix && npm run lint:md",
+    "lint:package": "sort-package-json --check",
+    "lint:package:fix": "sort-package-json",
+    "lint:style": "npm run lint:style:base -- --check",
+    "lint:style:base": "prettier \"{src,sample}/**/*.{ts,tsx,js,json}\" \"./*.{ts,tsx,js,json}\"",
+    "lint:style:fix": "npm run lint:style:base -- --write",
+    "lint:md": "node lint-markdown.js",
+    "build:example": "rimraf docs/.vuepress/public/example && tsc && parcel build example/index.html --public-url /example/ -d docs/.vuepress/public/example --no-source-maps",
+    "start": "parcel  -d docs/.vuepress/public/example example/index.html"
+  },
+  "browserslist": [
+    "since 2017-06"
+  ],
+  "devDependencies": {
+    "@lusito/eslint-config": "^1.6.1",
+    "@lusito/prettier-config": "^1.6.0",
+    "eslint-plugin-jest": "^24.3.6",
+    "eslint-plugin-jsdoc": "^35.4.0",
+    "markdown-link-check": "^3.8.7",
+    "parcel-bundler": "^1.12.5",
+    "parcel-plugin-static-files-copy": "^2.6.0",
+    "rimraf": "^3.0.2",
+    "sort-package-json": "^1.50.0",
+    "typedoc": "^0.21.2",
+    "typedoc-plugin-markdown": "^3.10.2",
+    "typescript": "4.3.4",
+    "vuepress": "^1.8.2",
+    "vuepress-plugin-fulltext-search": "^2.2.1",
+    "vuepress-plugin-typedoc": "^0.8.0"
+  },
+  "staticFiles": {
+    "staticPath": [
+      "example/assets/music.wav",
+      "example/assets/noise.wav"
+    ]
+  }
+}

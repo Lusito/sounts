@@ -1,0 +1,30 @@
+title: sounts
+description: A tiny helper library for working with the web audio API written in TypeScript.
+base: "/sounts/"
+themeConfig:
+  sidebarDepth: 0
+  nav:
+  - link: "/guide/"
+    text: Guide
+  - link: "/api/"
+    text: API
+  - link: "/sounts/example/"
+    text: Demo
+    target: _blank
+  - link: https://github.com/lusito/sounts
+    text: Github
+  - link: https://www.npmjs.com/package/sounts
+    text: NPM
+  sidebar:
+    "/guide/":
+    - title: Guide
+      children:
+      - ''
+      - getting-started
+      - positional-sound
+      - gain
+      - channels
+  displayAllHeaders: true
+plugins:
+- fulltext-search
+- typedoc
