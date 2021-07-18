@@ -29,6 +29,7 @@
   ],
   "scripts": {
     "build": "rimraf dist && tsc -p tsconfig-build.json",
+    "build:example": "rimraf docs/.vuepress/public/example && tsc && parcel build example/index.html --public-url /sounts/example/ -d docs/.vuepress/public/example --no-source-maps",
     "docs:build": "vuepress build docs",
     "docs:dev": "vuepress dev docs",
     "lint": "npm run lint:style && npm run lint:es && npm run lint:package && npm run lint:md",
@@ -41,7 +42,6 @@
     "lint:style:base": "prettier \"{src,sample}/**/*.{ts,tsx,js,json}\" \"./*.{ts,tsx,js,json}\"",
     "lint:style:fix": "npm run lint:style:base -- --write",
     "lint:md": "node lint-markdown.js",
-    "build:example": "rimraf docs/.vuepress/public/example && tsc && parcel build example/index.html --public-url /example/ -d docs/.vuepress/public/example --no-source-maps",
     "start": "parcel  -d docs/.vuepress/public/example example/index.html"
   },
   "browserslist": [
