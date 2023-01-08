@@ -1,1 +1,0 @@
-body{font-family:Verdana,Arial,Helvetica,sans-serif}main{height:800px;position:relative;visibility:hidden;border:1px solid #000;box-sizing:border-box}#listener,#panner,#panner_nocone{position:absolute;margin-top:-105px;margin-left:-105px}#listener{transform-origin:50% 60%;margin-top:-32px;margin-left:-32px;z-index:1}a{color:#000;text-decoration:none;font-weight:700}
