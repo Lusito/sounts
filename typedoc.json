@@ -1,7 +1,17 @@
 {
+  "readme": "none",
+  "plugin": ["typedoc-plugin-mdn-links"],
   "entryPoints": ["src/index.ts"],
-  "out": "docs",
+  "out": "dist-internal/api",
   "excludePrivate": true,
   "excludeInternal": true,
-  "gitRevision": "master"
+  "gitRevision": "master",
+  "titleLink": "https://lusito.github.io/sounts",
+  "navigationLinks": {
+    "API": "https://lusito.github.io/sounts/api",
+    "Demo": "https://lusito.github.io/sounts/demo"
+  },
+  "sidebarLinks": {
+      "Example": "http://example.com"
+  }
 }

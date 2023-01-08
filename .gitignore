@@ -3,6 +3,5 @@ dist
 coverage
 *.tgz
 .vscode
-docs/api
-.cache
-docs/.vuepress/public/example
+dist-internal
+.parcel-cache

@@ -2,9 +2,11 @@
 import { createAudioContext, createSoundListener, SoundSource } from "../src";
 import { Player } from "./Player";
 import { DEG_TO_RAD, loadAudioBuffer, main, moveElementTo } from "./utils";
+import music from "./assets/music.wav";
+import noise from "./assets/noise.wav";
 
 async function setupLeftSource(audioContext: AudioContext) {
-    const audioBuffer = await loadAudioBuffer(audioContext, "music.wav");
+    const audioBuffer = await loadAudioBuffer(audioContext, music);
 
     const position = [main.clientWidth / 4, main.clientHeight / 2] as const;
     moveElementTo(document.getElementById("panner")!, position[0], position[1]);
@@ -24,7 +26,7 @@ async function setupLeftSource(audioContext: AudioContext) {
 }
 
 async function setupRightSource(audioContext: AudioContext) {
-    const audioBuffer = await loadAudioBuffer(audioContext, "noise.wav");
+    const audioBuffer = await loadAudioBuffer(audioContext, noise);
 
     const position = [(main.clientWidth * 3) / 4, main.clientHeight / 2] as const;
     moveElementTo(document.getElementById("panner_nocone")!, position[0], position[1]);

@@ -27,11 +27,19 @@
   "files": [
     "dist/"
   ],
+  "targets": {
+    "module": false,
+    "main": false,
+    "types": false
+  },
   "scripts": {
     "build": "rimraf dist && tsc -p tsconfig-build.json",
-    "build:example": "rimraf docs/.vuepress/public/example && tsc && parcel build example/index.html --public-url /sounts/example/ -d docs/.vuepress/public/example --no-source-maps",
-    "docs:build": "vuepress build docs",
-    "docs:dev": "vuepress dev docs",
+    "build:api": "rimraf dist-internal/api && typedoc src",
+    "build:docs": "rimraf dist-internal && npm run build:api && npm run build:example:prod && mono-docs . build",
+    "serve:docs": "rimraf dist-internal && npm run build:api && npm run build:example:dev && mono-docs . serve",
+    "build:example:dev": "npm run build:example:base -- --public-url /example/",
+    "build:example:prod": "npm run build:example:base -- --public-url /sounts/example/",
+    "build:example:base": "rimraf dist-internal/example && tsc && parcel build example/index.html --dist-dir dist-internal/example --no-source-maps",
     "lint": "npm run lint:style && npm run lint:es && npm run lint:package && npm run lint:md",
     "lint:es": "eslint \"{src,sample}/**/*.{ts,tsx}\" --ext \".ts,.tsx\" --ignore-path .prettierignore",
     "lint:es:fix": "npm run lint:es -- --fix",
@@ -42,27 +50,27 @@
     "lint:style": "npm run lint:style:base -- --check",
     "lint:style:base": "prettier \"{src,sample}/**/*.{ts,tsx,js,json}\" \"./*.{ts,tsx,js,json}\"",
     "lint:style:fix": "npm run lint:style:base -- --write",
-    "start": "parcel  -d docs/.vuepress/public/example example/index.html"
+    "start": "parcel --dist-dir dist-internal/example example/index.html",
+    "start:docs": "nodemon --ignore node_modules --ignore dist --ignore \"dist-internal\" -e ts,tsx,md,scss,png,webp --exec \"npm run serve:docs\""
   },
   "browserslist": [
     "since 2017-06"
   ],
   "devDependencies": {
-    "@lusito/eslint-config": "^2.0.0",
-    "@lusito/prettier-config": "^2.0.0",
-    "eslint-plugin-jest": "^26.3.0",
-    "eslint-plugin-jsdoc": "^39.3.2",
-    "markdown-link-check": "^3.10.2",
-    "parcel-bundler": "^1.12.5",
+    "@lusito/eslint-config": "^2.3.0",
+    "@lusito/mono-docs": "^0.13.0",
+    "@lusito/prettier-config": "^2.3.0",
+    "eslint-plugin-jest": "^27.2.1",
+    "eslint-plugin-jsdoc": "^39.6.4",
+    "markdown-link-check": "^3.10.3",
+    "nodemon": "^2.0.20",
+    "parcel": "^2.8.2",
     "parcel-plugin-static-files-copy": "^2.6.0",
     "rimraf": "^3.0.2",
-    "sort-package-json": "^1.57.0",
-    "typedoc": "^0.22.15",
-    "typedoc-plugin-markdown": "^3.12.1",
-    "typescript": "4.6.4",
-    "vuepress": "^1.9.7",
-    "vuepress-plugin-fulltext-search": "^2.2.1",
-    "vuepress-plugin-typedoc": "^0.10.3"
+    "sort-package-json": "^2.1.0",
+    "typedoc": "^0.23.23",
+    "typedoc-plugin-mdn-links": "^2.0.2",
+    "typescript": "4.9.4"
   },
   "staticFiles": {
     "staticPath": [

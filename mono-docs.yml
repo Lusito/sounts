@@ -1,0 +1,35 @@
+siteName: 'sounts'
+title: ''
+description: A tiny helper library for working with the web audio API written in TypeScript.
+footer:
+  - Zlib/Libpng License | https://github.com/Lusito/sounts/blob/master/LICENSE
+  - Copyright © 2022 Santo Pfingsten
+keywords:
+  - TypeScript
+  - audio
+  - web audio
+  - webaudio
+  - spatialization
+  - positional
+  - html5
+  - Game
+sidebar:
+  - setup
+  - getting-started
+  - positional-sound
+  - gain
+  - channels
+links:
+  - Github | https://github.com/lusito/sounts
+  - NPM | https://www.npmjs.com/package/sounts
+  - API | https://lusito.github.io/sounts/api/
+  - Demo | https://lusito.github.io/sounts/example/
+adjustPaths:
+  - ^(\/docs)?/([^/]+\.html)$|/$2
+  - ^(\/docs)?/([^/]+/)?$|/$2
+buildOptions:
+  out: dist-internal/docs
+  siteUrl: https://lusito.github.io/sounts
+  static:
+    example: dist-internal/example
+    api: dist-internal/api
