@@ -9,7 +9,7 @@
   "titleLink": "https://lusito.github.io/sounts",
   "navigationLinks": {
     "API": "https://lusito.github.io/sounts/api",
-    "Demo": "https://lusito.github.io/sounts/demo"
+    "Demo": "https://lusito.github.io/sounts/example"
   },
   "sidebarLinks": {
       "Example": "http://example.com"
